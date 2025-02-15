@@ -1,0 +1,6 @@
+POIC-Net is a novel algorithm designed to identify partially trained objects in 
+agentic object detection systems. It is particularly useful for models 
+that need to detect incomplete or partially visible objects in images, 
+videos, or even parts of speech in text data. 
+The algorithm leverages a multi-modal attention mechanism and generative completion networks to infer missing parts of objects or speech, enabling models to make accurate predictions 
+even when the input data is incomplete or ambiguous.
