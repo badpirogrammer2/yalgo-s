@@ -1,3 +1,6 @@
+Algorithm Name: Partial Object Identification and Completion Network (POIC-Net)
+
+
 POIC-Net is a novel algorithm designed to identify partially trained objects in 
 agentic object detection systems. It is particularly useful for models 
 that need to detect incomplete or partially visible objects in images, 
