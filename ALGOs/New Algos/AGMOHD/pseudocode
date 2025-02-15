@@ -1,0 +1,31 @@
+def AGMOHD(model, data, loss_fn, max_epochs):
+    # Initialize parameters
+    theta = model.parameters()
+    m = 0  # Momentum
+    beta = 0.9  # Initial momentum factor
+    eta_base = 0.01  # Base learning rate
+    alpha = 0.1  # Gradient norm sensitivity
+    T = 1000  # Cycle length for learning rate schedule
+
+    for epoch in range(max_epochs):
+        for batch in data:
+            # Compute loss and gradients
+            loss = loss_fn(model, batch)
+            grad = compute_gradients(loss, theta)
+
+            # Hindrance Detection Mechanism
+            if detect_hindrance(grad, loss, theta):
+                theta, m, beta, eta_base = mitigate_hindrance(theta, m, beta, eta_base)
+
+            # Update momentum
+            beta_t = adapt_beta(grad, beta)
+            m = beta_t * m + (1 - beta_t) * grad
+
+            # Update learning rate
+            eta_t = eta_base * (1 + cos(pi * (epoch % T) / T)) / 2
+            eta_t = eta_t / (1 + alpha * norm(grad)**2)
+
+            # Update parameters
+            theta = theta - eta_t * m
+
+    return model
