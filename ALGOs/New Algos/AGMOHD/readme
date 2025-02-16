@@ -1,7 +1,14 @@
 Algorithm Name: Adaptive Gradient Momentum Optimization with Hindrance Detection (AGMOHD)
 
 Overview:
-AGMOHD is a novel optimization algorithm designed to fine-tune training programs for machine learning models by dynamically adjusting learning rates, momentum, and other hyperparameters while simultaneously identifying and mitigating hindrances that slow down or destabilize training. The algorithm introduces a hindrance detection mechanism that monitors the training process in real-time, identifying issues such as vanishing gradients, exploding gradients, poor weight initialization, or data distribution shifts. AGMOHD then adapts its optimization strategy to overcome these issues, ensuring faster convergence and better model performance.
+AGMOHD is a novel optimization algorithm designed to fine-tune training programs for machine 
+learning models by dynamically adjusting learning rates, momentum, and other hyperparameters 
+while simultaneously identifying and mitigating hindrances that slow down or destabilize training.
+The algorithm introduces a hindrance detection mechanism that monitors the training process in 
+real-time, identifying issues such as vanishing gradients, exploding gradients, 
+poor weight initialization, or data distribution shifts. 
+AGMOHD then adapts its optimization strategy to overcome these issues, 
+ensuring faster convergence and better model performance.
  
 Key Components of AGMOHD:
 1.	Adaptive Gradient Momentum (AGM):
