@@ -8,6 +8,26 @@ videos, or even parts of speech in text data.
 The algorithm leverages a multi-modal attention mechanism and generative completion networks to infer missing parts of objects or speech, enabling models to make accurate predictions 
 even when the input data is incomplete or ambiguous.
 
+Test Results 
+Testing Image Models:
+resnet50: Features shape = torch.Size([1, 2048])
+resnet101: Features shape = torch.Size([1, 2048])
+resnet152: Features shape = torch.Size([1, 2048])
+vgg16: Features shape = torch.Size([1, 4096])
+vgg19: Features shape = torch.Size([1, 4096])
+inception_v3: Features shape = torch.Size([1, 2048])
+efficientnet_b0: Features shape = torch.Size([1, 1280])
+efficientnet_b7: Features shape = torch.Size([1, 2560])
+densenet121: Features shape = torch.Size([1, 1024])
+mobilenet_v2: Features shape = torch.Size([1, 1280])
+
+Testing Text Models:
+bert: Features shape = torch.Size([1, 768])
+gpt2: Features shape = torch.Size([1, 768])
+roberta: Features shape = torch.Size([1, 768])
+
+
+
 
 Key Components of POIC-Net:
 1.	Partial Object Detection Module (PODM):
