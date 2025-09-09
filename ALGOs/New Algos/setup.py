@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-with open("README.md", "r", encoding="utf-8") as fh:
+with open("../../README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
@@ -30,11 +30,6 @@ setup(
     ],
     python_requires=">=3.8",
     install_requires=[
-        # Core ML/DL Libraries
-        "torch>=2.0.0",
-        "torchvision>=0.15.0",
-        "transformers>=4.0.0",
-
         # Scientific Computing
         "numpy>=1.21.0",
         "scipy>=1.7.0",
@@ -46,8 +41,7 @@ setup(
         # Machine Learning
         "scikit-learn>=1.0.0",
 
-        # Parallel Processing
-        "concurrent.futures; python_version >= '3.2'",
+
 
         # Utilities
         "pathlib>=1.0.1",
@@ -94,6 +88,13 @@ setup(
             "matplotlib>=3.5.0",
             "seaborn>=0.11.0",
             "plotly>=5.0",
+            "kaleido>=0.2.1",  # For static image export
+        ],
+        "monitoring": [
+            # System monitoring
+            "psutil>=5.8.0",
+            "GPUtil>=1.4.0",
+            "py-cpuinfo>=9.0.0",
         ],
         "ml": [
             # Additional ML libraries
