@@ -16,7 +16,9 @@ def AGMOHD(model, data_loader, loss_fn, max_epochs):
         for batch in data_loader:
             # Compute loss and gradients
             optimizer.zero_grad()  # Important: Clear gradients before each batch
-            loss = loss_fn(model, batch)
+            inputs, targets = batch
+            outputs = model(inputs)
+            loss = loss_fn(outputs, targets)
             loss.backward()  # Compute gradients
 
             grad = [param.grad for param in model.parameters()] # Extract gradients
@@ -44,25 +46,29 @@ def AGMOHD(model, data_loader, loss_fn, max_epochs):
 
     return model
 
-# Placeholder functions - You'll need to implement these based on your needs
+# Implemented functions
 def detect_hindrance(grad, loss, theta):
-    # Your logic to detect training hindrances (e.g., based on gradient norms, loss spikes, etc.)
-    # Example: Check if gradient norm is excessively large
+    # Detect based on gradient norm and loss spikes
     grad_norm = torch.norm(torch.cat([g.view(-1) for g in grad]))
-    if grad_norm > 100:  # Example threshold
+    if grad_norm > 10 or loss.item() > 1e5:  # Adjusted thresholds
         return True
     return False
 
 def mitigate_hindrance(model, m, beta, eta_base):
-    # Your logic to mitigate training hindrances (e.g., adjust learning rate, momentum, or model parameters)
-    # Example: Reduce learning rate and reset momentum
-    eta_base *= 0.1
+    # Reduce learning rate and reset momentum
+    eta_base *= 0.5
     m = [torch.zeros_like(param) for param in model.parameters()]
     return model, m, beta, eta_base
 
 def adapt_beta(grad, beta):
-  # Your logic to adapt beta
-  return beta # Return the beta (might be same or modified)
+    # Adapt beta based on gradient variance
+    grad_flat = torch.cat([g.view(-1) for g in grad])
+    variance = torch.var(grad_flat)
+    if variance > 1.0:
+        beta = min(beta + 0.1, 0.99)
+    else:
+        beta = max(beta - 0.01, 0.8)
+    return beta
 
 # Example usage (replace with your model, data, and loss function):
 class SimpleModel(nn.Module):

@@ -42,42 +42,55 @@ def preprocess_image(image):
 
 
 
-# 2. Partial Object Detection Module (PODM) - Placeholder
+# 2. Partial Object Detection Module (PODM) - Basic Implementation
 def PODM(features):
-    # Your object detection logic (e.g., using a pre-trained detector or a custom model)
-    # This should return bounding boxes (partial_regions) and confidence scores.
-    # Placeholder:
+    # Simple threshold-based detection on feature maps
+    threshold = 0.5  # Confidence threshold
     if isinstance(features, list): # Handling multiple images
         partial_regions = []
         confidence_scores = []
         for feature in features:
-            # Example: Assuming each feature map has some detections
-            # Replace with your actual detection logic
-            num_detections = 2 # Example number of detections per image
-            h, w = feature.shape[2:] # Feature map height and width
-            for _ in range(num_detections):
-                x1, y1, x2, y2 = torch.randint(0, min(h,w), (4,)) # Random bounding boxes (replace with your logic)
+            # Assume feature is [batch, channels, h, w]
+            feature_map = feature.mean(dim=1, keepdim=True)  # Average over channels
+            # Simple max pooling to find high activation regions
+            pooled = torch.nn.functional.adaptive_max_pool2d(feature_map, (1, 1))
+            confidence = pooled.item()
+            if confidence > threshold:
+                h, w = feature.shape[2:]
+                # Simple bounding box: center region
+                x1, y1 = int(0.25 * w), int(0.25 * h)
+                x2, y2 = int(0.75 * w), int(0.75 * h)
                 partial_regions.append([x1, y1, x2, y2])
-                confidence_scores.append(torch.rand(1).item()) # Random confidence score
+                confidence_scores.append(confidence)
+            else:
+                partial_regions.append([])
+                confidence_scores.append(0.0)
         return partial_regions, confidence_scores
     else:
-        num_detections = 2  # Example
-        h, w = features.shape[2:]
-        partial_regions = []
-        confidence_scores = []
-        for _ in range(num_detections):
-            x1, y1, x2, y2 = torch.randint(0, min(h,w), (4,))
-            partial_regions.append([x1, y1, x2, y2])
-            confidence_scores.append(torch.rand(1).item())
-        return partial_regions, confidence_scores
+        feature_map = features.mean(dim=1, keepdim=True)
+        pooled = torch.nn.functional.adaptive_max_pool2d(feature_map, (1, 1))
+        confidence = pooled.item()
+        if confidence > threshold:
+            h, w = features.shape[2:]
+            x1, y1 = int(0.25 * w), int(0.25 * h)
+            x2, y2 = int(0.75 * w), int(0.75 * h)
+            return [[x1, y1, x2, y2]], [confidence]
+        else:
+            return [[]], [0.0]
 
 
-# 3. Generative Completion Network (GCN) - Placeholder
+# 3. Generative Completion Network (GCN) - Basic Implementation
 def GCN(region, features):
-    # Your generative completion logic (e.g., using a GAN or VAE)
-    # This should take a region and features and return a completed object.
-    # Placeholder:
-    return torch.randn(3, 224, 224)  # Random completed object (replace with your logic)
+    # Simple completion: use bilinear upsampling of the region
+    if not region:
+        return torch.zeros(3, 224, 224)  # No region, return zeros
+    # Assume region is [x1, y1, x2, y2]
+    x1, y1, x2, y2 = region
+    # For simplicity, return a resized version of the features
+    upsampled = torch.nn.functional.interpolate(features, size=(224, 224), mode='bilinear', align_corners=False)
+    # Take mean over channels to get 3-channel image
+    completed = upsampled.mean(dim=1, keepdim=True).repeat(1, 3, 1, 1).squeeze(0)
+    return completed
 
 
 # 4. Multi-Modal Attention Module (MMAM) - Placeholder

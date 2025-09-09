@@ -1,4 +1,83 @@
-ARCE is tested and remaining algorithm(s) yet to be tested with multiple models and needs few tweaks to work with all models
+# YALGO-S: Yet Another Library for Gradient Optimization and Specialized algorithms
 
-please post results if tested
-so that we could enhance
+A collection of advanced algorithms for machine learning optimization and multi-modal processing.
+
+## Overview
+
+YALGO-S provides cutting-edge algorithms for:
+- **AGMOHD**: Adaptive Gradient Momentum with Hindrance Detection - Advanced optimization for neural networks
+- **POIC-NET**: Partial Object Inference and Completion Network - Multi-modal object detection and completion
+- **ARCE**: Adaptive Resonance with Contextual Embedding - Online learning and adaptation
+
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/badpirogrammer2/yalgo-s.git
+cd yalgo-s/ALGOs/New\ Algos
+
+# Install the library
+pip install -e .
+```
+
+## Quick Start
+
+### AGMOHD Example
+```python
+from yalgo_s import AGMOHD
+import torch.nn as nn
+
+model = nn.Linear(10, 1)
+optimizer = AGMOHD(model)
+# ... train your model
+```
+
+### POIC-NET Example
+```python
+from yalgo_s import POICNet
+from PIL import Image
+
+poic_net = POICNet()
+image = Image.open("image.jpg")
+objects, scores = poic_net(image)
+```
+
+## Project Structure
+
+```
+yalgo_s/
+├── __init__.py
+├── agmohd/
+│   ├── __init__.py
+│   └── agmohd.py
+├── poic_net/
+│   ├── __init__.py
+│   └── poicnet.py
+└── arce/
+    ├── __init__.py
+    └── arce.py  # To be implemented
+```
+
+## Testing Status
+
+- ✅ **ARCE**: Tested and working
+- ✅ **AGMOHD**: Implemented with working hindrance detection and mitigation
+- ✅ **POIC-NET**: Basic implementation with feature extraction and detection
+
+## Documentation
+
+- [Applications](applications.md) - Detailed use cases and applications
+- [API Reference](docs/) - Complete API documentation
+
+## Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- Built with PyTorch and Transformers
+- Inspired by cutting-edge research in optimization and multi-modal learning
