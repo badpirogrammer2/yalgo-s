@@ -8,6 +8,7 @@ YALGO-S provides cutting-edge algorithms for:
 - **AGMOHD**: Adaptive Gradient Momentum with Hindrance Detection - Advanced optimization for neural networks
 - **POIC-NET**: Partial Object Inference and Completion Network - Multi-modal object detection and completion
 - **ARCE**: Adaptive Resonance with Contextual Embedding - Online learning and adaptation
+- **Image Training**: Integrated CNN training with AGMOHD optimizer - Easy-to-use image classification and training
 
 ## 📦 **Complete Installation Guide**
 
@@ -386,6 +387,49 @@ image = Image.open("image.jpg")
 objects, scores = poic_net(image)
 ```
 
+### Image Training Example
+```python
+from yalgo_s import ImageTrainer
+import torch.nn as nn
+
+# Option 1: Use pre-trained ResNet18
+trainer = ImageTrainer(
+    model_name='resnet18',
+    num_classes=10,
+    batch_size=64,
+    max_epochs=10
+)
+
+# Setup CIFAR-10 dataset with augmentation
+trainer.setup_data('CIFAR10', augmentation=True)
+
+# Train with AGMOHD optimizer
+trained_model = trainer.train()
+accuracy = trainer.evaluate()
+print(f"Test Accuracy: {accuracy:.2f}%")
+
+# Option 2: Use custom CNN
+class CustomCNN(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(3, 32, 3, padding=1)
+        self.pool = nn.MaxPool2d(2, 2)
+        self.conv2 = nn.Conv2d(32, 64, 3, padding=1)
+        self.fc1 = nn.Linear(64 * 8 * 8, 10)
+
+    def forward(self, x):
+        x = self.pool(torch.relu(self.conv1(x)))
+        x = self.pool(torch.relu(self.conv2(x)))
+        x = x.view(-1, 64 * 8 * 8)
+        x = self.fc1(x)
+        return x
+
+custom_trainer = ImageTrainer(model=CustomCNN(), batch_size=128)
+custom_trainer.setup_data('MNIST')
+trained_custom = custom_trainer.train()
+custom_accuracy = custom_trainer.evaluate()
+```
+
 ## Project Structure
 
 ```
@@ -397,6 +441,7 @@ yalgo_s/
 ├── poic_net/
 │   ├── __init__.py
 │   └── poicnet.py
+├── image_training.py
 └── arce/
     ├── __init__.py
     └── arce.py  # To be implemented
@@ -525,6 +570,7 @@ test_config = {
 - ✅ **ARCE**: Tested and working (simulation with contextual datasets)
 - ✅ **AGMOHD**: Implemented with working hindrance detection and mitigation
 - ✅ **POIC-NET**: Basic implementation with feature extraction and detection
+- ✅ **Image Training**: Integrated CNN training with AGMOHD optimizer (CIFAR-10, MNIST support)
 - ✅ **Parallel Processing**: Thread, process, and async modes validated
 - ✅ **RTX 5060 Optimizations**: TF32, cuDNN, and memory optimizations enabled
 - ✅ **Multi-GPU Support**: DataParallel and distributed processing

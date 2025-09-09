@@ -166,6 +166,57 @@ stats = optimizer.get_performance_stats()
 print(f"GPU Utilization: {stats.get('current_gpu_util', 'N/A')}%")
 ```
 
+### Image Training Example
+```python
+from yalgo_s import ImageTrainer
+import torch.nn as nn
+
+# Option 1: Use pre-trained model
+trainer = ImageTrainer(
+    model_name='resnet18',           # Pre-trained ResNet18
+    num_classes=10,                  # CIFAR-10 has 10 classes
+    batch_size=64,
+    max_epochs=10
+)
+
+# Setup data with augmentation
+trainer.setup_data(
+    dataset_name='CIFAR10',
+    data_dir='./data',
+    augmentation=True
+)
+
+# Train with AGMOHD optimizer
+trained_model = trainer.train()
+accuracy = trainer.evaluate()
+print(f"Test Accuracy: {accuracy:.2f}%")
+
+# Option 2: Use custom model
+class CustomCNN(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(3, 32, 3, padding=1)
+        self.pool = nn.MaxPool2d(2, 2)
+        self.conv2 = nn.Conv2d(32, 64, 3, padding=1)
+        self.fc1 = nn.Linear(64 * 8 * 8, 10)
+
+    def forward(self, x):
+        x = self.pool(torch.relu(self.conv1(x)))
+        x = self.pool(torch.relu(self.conv2(x)))
+        x = x.view(-1, 64 * 8 * 8)
+        x = self.fc1(x)
+        return x
+
+custom_trainer = ImageTrainer(
+    model=CustomCNN(),
+    batch_size=128,
+    max_epochs=20
+)
+custom_trainer.setup_data('CIFAR10', augmentation=True)
+trained_custom = custom_trainer.train()
+custom_accuracy = custom_trainer.evaluate()
+```
+
 ### POIC-NET Example
 ```python
 from yalgo_s import POICNet

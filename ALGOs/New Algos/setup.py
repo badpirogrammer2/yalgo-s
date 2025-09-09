@@ -40,8 +40,7 @@ setup(
 
         # Machine Learning
         "scikit-learn>=1.0.0",
-
-
+        "torchvision>=0.15.0",
 
         # Utilities
         "pathlib>=1.0.1",
