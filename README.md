@@ -26,6 +26,8 @@ YALGO-S is a pioneering collection of advanced algorithms that address some of t
 ### 1. 🎯 **AGMOHD** - Adaptive Gradient Momentum with Hindrance Detection
 **Revolutionary optimization for neural networks**
 
+📖 **[AGMOHD Technical Details](ALGOs/New%20Algos/AGMOHD/readme.md)** - Complete technical documentation, implementation details, and advanced usage
+
 #### ✨ **Key Features**
 - **Hindrance Detection**: Automatically identifies training instabilities
 - **Adaptive Momentum**: Dynamic momentum adjustment based on gradient analysis
@@ -52,6 +54,8 @@ YALGO-S is a pioneering collection of advanced algorithms that address some of t
 ### 2. 🔍 **POIC-NET** - Partial Object Inference and Completion Network
 **Multi-modal object detection and completion**
 
+📖 **[POIC-NET Technical Details](ALGOs/New%20Algos/POIC-NET/Readme)** - Complete technical documentation, implementation details, and advanced usage
+
 #### ✨ **Key Features**
 - **Partial Object Detection**: Identifies incomplete objects with high accuracy
 - **Generative Completion**: AI-powered object reconstruction
@@ -77,6 +81,8 @@ YALGO-S is a pioneering collection of advanced algorithms that address some of t
 
 ### 3. 🧠 **ARCE** - Adaptive Resonance with Contextual Embedding
 **Context-aware neural networks for adaptive learning**
+
+📖 **[ARCE Technical Details](ALGOs/New%20Algos/ARCE/readme)** - Complete technical documentation, implementation details, and advanced usage
 
 #### ✨ **Key Features**
 - **Contextual Embedding**: Multi-dimensional context integration
