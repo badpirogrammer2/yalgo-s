@@ -761,9 +761,9 @@ python test_parallel_optimizations.py
 - [Best Practices](docs/best-practices.md)
 
 ### 🎓 **Algorithm Documentation**
-- [AGMOHD Technical Details](ALGOs/New%20Algos/AGMOHD/readme.html)
-- [POIC-NET Technical Details](ALGOs/New%20Algos/POIC-NET/Readme.html)
-- [ARCE Technical Details](ALGOs/New%20Algos/ARCE/readme.html)
+- [AGMOHD Technical Details](ALGOs/New%20Algos/AGMOHD/readme.md)
+- [POIC-NET Technical Details](ALGOs/New%20Algos/POIC-NET/Readme)
+- [ARCE Technical Details](ALGOs/New%20Algos/ARCE/readme)
 
 ### 🧪 **Examples and Tutorials**
 - [Computer Vision Examples](examples/computer-vision/)
