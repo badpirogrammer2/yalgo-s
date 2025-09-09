@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YALGO-S Installation Guide - YALGO-S</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #2c3e50;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            color: #2980b9;
+        }
+
+        h2 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+
+        code {
+            background-color: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border-left: 4px solid #3498db;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #3498db;
+            padding-left: 20px;
+            margin-left: 0;
+            color: #555;
+            font-style: italic;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .badge-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .badge-info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+
+        ul, ol {
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header style="text-align: center; margin-bottom: 40px;">
+            <h1>🚀 YALGO-S Documentation</h1>
+            <p>Advanced AI Algorithms for Optimization, Multi-Modal Processing, and Adaptive Learning</p>
+        </header>
+
+        <nav style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 30px;">
+            <strong>Quick Navigation:</strong>
+            <a href="#top">Top</a> |
+            <a href="README.html">Main README</a> |
+            <a href="ALGOs/New%20Algos/Readme.html">Installation</a> |
+            <a href="ALGOs/New%20Algos/applications.html">Applications</a>
+        </nav>
+
+        <main>
+<h1>YALGO-S Installation Guide</h1>
+<h2>Overview</h2>
+<p>This guide provides comprehensive installation instructions for YALGO-S across different platforms and environments.</p>
+<h2>Quick Start Installation</h2>
+<h3>Basic Installation</h3>
+<pre class="codehilite"><code class="language-bash"># Clone the repository
+git clone https://github.com/badpirogrammer2/yalgo-s.git
+cd yalgo-s/ALGOs/New\ Algos
+
+# Install core dependencies
+pip install -e .
+</code></pre>
+
+<h3>Full Installation</h3>
+<pre class="codehilite"><code class="language-bash"># Install with all optional dependencies
+pip install -e &quot;.[all]&quot;
+</code></pre>
+
+<h2>Platform-Specific Installation</h2>
+<h3>Linux (Ubuntu/Debian)</h3>
+<pre class="codehilite"><code class="language-bash"># System dependencies
+sudo apt update
+sudo apt install -y python3-dev build-essential
+
+# NVIDIA drivers (if using GPU)
+sudo apt install -y nvidia-driver-470
+
+# Install PyTorch with CUDA
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+# Install YALGO-S
+git clone https://github.com/badpirogrammer2/yalgo-s.git
+cd yalgo-s/ALGOs/New\ Algos
+pip install -e .
+</code></pre>
+
+<h3>macOS (Intel)</h3>
+<pre class="codehilite"><code class="language-bash"># Install Python (if not already installed)
+brew install python@3.9
+
+# Install PyTorch
+pip install torch torchvision torchaudio
+
+# Install YALGO-S
+git clone https://github.com/badpirogrammer2/yalgo-s.git
+cd yalgo-s/ALGOs/New\ Algos
+pip install -e .
+</code></pre>
+
+<h3>macOS (Apple Silicon)</h3>
+<pre class="codehilite"><code class="language-bash"># Python comes pre-installed
+# Install PyTorch with MPS support
+pip install torch torchvision torchaudio
+
+# MPS acceleration is automatically detected
+# No additional setup required
+
+# Install YALGO-S
+git clone https://github.com/badpirogrammer2/yalgo-s.git
+cd yalgo-s/ALGOs/New\ Algos
+pip install -e .
+</code></pre>
+
+<h3>Windows</h3>
+<pre class="codehilite"><code class="language-bash"># Install Python from python.org or Microsoft Store
+# Install PyTorch with CUDA
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+# Install YALGO-S
+git clone https://github.com/badpirogrammer2/yalgo-s.git
+cd yalgo-s\ALGOs\New Algos
+pip install -e .
+</code></pre>
+
+<h2>GPU Setup</h2>
+<h3>NVIDIA RTX 5060 Setup</h3>
+<pre class="codehilite"><code class="language-bash"># Install CUDA toolkit
+# Download from: https://developer.nvidia.com/cuda-downloads
+
+# Install PyTorch with CUDA support
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+# Verify installation
+python -c &quot;import torch; print(torch.cuda.is_available())&quot;
+</code></pre>
+
+<h3>Multi-GPU Setup</h3>
+<pre class="codehilite"><code class="language-bash"># Enable multi-GPU support
+export CUDA_VISIBLE_DEVICES=0,1,2,3
+
+# Verify multi-GPU
+python -c &quot;import torch; print(torch.cuda.device_count())&quot;
+</code></pre>
+
+<h2>Testing Installation</h2>
+<h3>Basic Tests</h3>
+<pre class="codehilite"><code class="language-bash"># Test core functionality
+python -c &quot;import yalgo_s; print('YALGO-S installed successfully!')&quot;
+
+# Run comprehensive test suite
+python run_all_tests.py
+</code></pre>
+
+<h3>GPU Tests</h3>
+<pre class="codehilite"><code class="language-bash"># Test GPU availability
+python -c &quot;import torch; print(f'CUDA available: {torch.cuda.is_available()}')&quot;
+
+# Test RTX optimizations
+python test_parallel_optimizations.py
+</code></pre>
+
+<h2>Troubleshooting</h2>
+<h3>Common Issues</h3>
+<p><strong>CUDA Installation Problems</strong></p>
+<pre class="codehilite"><code class="language-bash"># Check CUDA version compatibility
+nvcc --version
+python -c &quot;import torch; print(torch.version.cuda)&quot;
+
+# Reinstall PyTorch with correct CUDA version
+pip uninstall torch torchvision torchaudio
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+</code></pre>
+
+<p><strong>Memory Issues</strong></p>
+<pre class="codehilite"><code class="language-bash"># Reduce batch size
+export CUDA_VISIBLE_DEVICES=0
+python your_script.py --batch-size 16
+
+# Enable memory optimization
+python -c &quot;import torch; torch.cuda.set_per_process_memory_fraction(0.8)&quot;
+</code></pre>
+
+<p><strong>Import Errors</strong></p>
+<pre class="codehilite"><code class="language-bash"># Check Python path
+python -c &quot;import sys; print(sys.path)&quot;
+
+# Reinstall package
+pip uninstall yalgo-s
+pip install -e .
+</code></pre>
+
+<h2>Environment Configuration</h2>
+<h3>Environment Variables</h3>
+<pre class="codehilite"><code class="language-bash"># GPU Configuration
+export CUDA_VISIBLE_DEVICES=0,1    # Specify GPU devices
+export TORCH_USE_CUDA_DSA=1        # CUDA device-side assertions
+
+# Memory Configuration
+export PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:512  # Memory optimization
+
+# Performance Configuration
+export OMP_NUM_THREADS=8            # OpenMP threads
+export MKL_NUM_THREADS=8            # MKL threads
+</code></pre>
+
+<h3>Runtime Configuration</h3>
+<pre class="codehilite"><code class="language-python">import torch
+
+# GPU Memory Management
+torch.cuda.set_per_process_memory_fraction(0.9)
+torch.cuda.empty_cache()
+
+# Performance Optimizations
+torch.backends.cudnn.benchmark = True
+torch.backends.cuda.matmul.allow_tf32 = True
+</code></pre>
+
+<h2>Container Installation</h2>
+<h3>Docker</h3>
+<pre class="codehilite"><code class="language-bash"># Build and run
+docker build -t yalgo-s .
+docker run --gpus all yalgo-s
+
+# Or use pre-built image
+docker run --gpus all yalgo-s:latest
+</code></pre>
+
+<h3>Podman</h3>
+<pre class="codehilite"><code class="language-bash">podman build -t yalgo-s .
+podman run --device nvidia.com/gpu=all yalgo-s
+</code></pre>
+
+<h2>Cloud Installation</h2>
+<h3>AWS EC2</h3>
+<pre class="codehilite"><code class="language-bash"># GPU instance setup
+aws ec2 run-instances --instance-type p3.2xlarge --image-id ami-12345678
+
+# Install dependencies
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+git clone https://github.com/badpirogrammer2/yalgo-s.git
+cd yalgo-s/ALGOs/New\ Algos
+pip install -e .
+</code></pre>
+
+<h3>Google Cloud</h3>
+<pre class="codehilite"><code class="language-bash"># GPU instance
+gcloud compute instances create yalgo-s-instance \
+  --machine-type n1-standard-8 \
+  --accelerator type=nvidia-tesla-t4,count=1
+
+# Install dependencies
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+git clone https://github.com/badpirogrammer2/yalgo-s.git
+cd yalgo-s/ALGOs/New\ Algos
+pip install -e .
+</code></pre>
+
+<h3>Azure</h3>
+<pre class="codehilite"><code class="language-bash"># GPU VM
+az vm create --name yalgo-s-vm --size Standard_NC6 --image Ubuntu2204
+
+# Install dependencies
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+git clone https://github.com/badpirogrammer2/yalgo-s.git
+cd yalgo-s/ALGOs/New\ Algos
+pip install -e .
+</code></pre>
+
+<h2>Support</h2>
+<p>For installation issues, please check:
+- <a href="https://github.com/badpirogrammer2/yalgo-s/issues">GitHub Issues</a>
+- <a href="https://docs.yalgo-s.com">Documentation</a>
+- <a href="https://github.com/badpirogrammer2/yalgo-s/discussions">Community Forum</a></p>
+        </main>
+
+        <div class="footer">
+            <p>
+                <strong>YALGO-S</strong> - Advanced AI Algorithms<br>
+                <a href="https://github.com/badpirogrammer2/yalgo-s">GitHub Repository</a> |
+                <a href="https://docs.yalgo-s.com">Official Documentation</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

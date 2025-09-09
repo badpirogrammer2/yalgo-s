@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YALGO-S Quick Start Guide - YALGO-S</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #2c3e50;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            color: #2980b9;
+        }
+
+        h2 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+
+        code {
+            background-color: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border-left: 4px solid #3498db;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #3498db;
+            padding-left: 20px;
+            margin-left: 0;
+            color: #555;
+            font-style: italic;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .badge-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .badge-info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+
+        ul, ol {
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header style="text-align: center; margin-bottom: 40px;">
+            <h1>🚀 YALGO-S Documentation</h1>
+            <p>Advanced AI Algorithms for Optimization, Multi-Modal Processing, and Adaptive Learning</p>
+        </header>
+
+        <nav style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 30px;">
+            <strong>Quick Navigation:</strong>
+            <a href="#top">Top</a> |
+            <a href="README.html">Main README</a> |
+            <a href="ALGOs/New%20Algos/Readme.html">Installation</a> |
+            <a href="ALGOs/New%20Algos/applications.html">Applications</a>
+        </nav>
+
+        <main>
+<h1>YALGO-S Quick Start Guide</h1>
+<h2>Welcome to YALGO-S!</h2>
+<p>This guide will get you up and running with YALGO-S in minutes. We'll cover the basic installation and your first examples with each algorithm.</p>
+<h2>🚀 Quick Installation</h2>
+<pre class="codehilite"><code class="language-bash"># Clone the repository
+git clone https://github.com/badpirogrammer2/yalgo-s.git
+cd yalgo-s/ALGOs/New\ Algos
+
+# Install dependencies
+pip install -e .
+</code></pre>
+
+<h2>🎯 Your First Examples</h2>
+<h3>AGMOHD Optimizer</h3>
+<pre class="codehilite"><code class="language-python">from yalgo_s import AGMOHD
+import torch.nn as nn
+
+# Define a simple model
+model = nn.Sequential(
+    nn.Linear(784, 128),
+    nn.ReLU(),
+    nn.Linear(128, 10)
+)
+
+# Create AGMOHD optimizer
+optimizer = AGMOHD(
+    model,
+    lr=0.01,
+    beta=0.9,
+    device='auto'  # Auto-detect GPU
+)
+
+print(&quot;AGMOHD optimizer created successfully!&quot;)
+</code></pre>
+
+<h3>Image Training</h3>
+<pre class="codehilite"><code class="language-python">from yalgo_s import ImageTrainer
+
+# Use pre-trained ResNet18
+trainer = ImageTrainer(
+    model_name='resnet18',
+    num_classes=10,
+    batch_size=64,
+    max_epochs=5
+)
+
+# Setup CIFAR-10 dataset
+trainer.setup_data('CIFAR10', augmentation=True)
+
+# Train with AGMOHD optimizer
+trained_model = trainer.train()
+accuracy = trainer.evaluate()
+print(f&quot;Test Accuracy: {accuracy:.2f}%&quot;)
+</code></pre>
+
+<h3>POIC-NET</h3>
+<pre class="codehilite"><code class="language-python">from yalgo_s import POICNet
+from PIL import Image
+
+# Initialize POIC-Net
+poic_net = POICNet()
+
+# Load and process image
+image = Image.open(&quot;sample_image.jpg&quot;)
+objects, scores = poic_net(image)
+
+print(f&quot;Detected {len(objects)} objects&quot;)
+</code></pre>
+
+<h3>ARCE</h3>
+<pre class="codehilite"><code class="language-python">from yalgo_s.arce import ARCE
+
+# Create ARCE network
+arce = ARCE(input_dim=100, vigilance_base=0.8)
+
+# Learn pattern with context
+context = {'time': 'morning', 'location': 'office'}
+category = arce.learn(sensor_data, context)
+print(f&quot;Pattern classified to category: {category}&quot;)
+</code></pre>
+
+<h2>📊 Running Tests</h2>
+<h3>Basic Functionality Test</h3>
+<pre class="codehilite"><code class="language-bash"># Test core functionality
+python -c &quot;import yalgo_s; print('YALGO-S ready!')&quot;
+</code></pre>
+
+<h3>Comprehensive Test Suite</h3>
+<pre class="codehilite"><code class="language-bash"># Run all tests
+python run_all_tests.py
+</code></pre>
+
+<h3>GPU Test</h3>
+<pre class="codehilite"><code class="language-bash"># Test GPU functionality
+python -c &quot;import torch; print(f'GPU available: {torch.cuda.is_available()}')&quot;
+</code></pre>
+
+<h2>🎨 Interactive Visualizations</h2>
+<p>YALGO-S includes interactive HTML visualizations that you can open directly in your browser:</p>
+<h3>AGMOHD Visualizations</h3>
+<ul>
+<li><a href="ALGOs/New%20Algos/AGMOHD/yalgo_s_algorithm_comparison.html">Algorithm Comparison</a></li>
+<li><a href="ALGOs/New%20Algos/AGMOHD/yalgo_s_training_progress.html">Training Progress</a></li>
+<li><a href="ALGOs/New%20Algos/AGMOHD/yalgo_s_performance_heatmap.html">Performance Heatmap</a></li>
+</ul>
+<h3>Main Documentation</h3>
+<ul>
+<li><a href="README.html">README</a></li>
+<li><a href="ALGOs/New%20Algos/Readme.html">Installation Guide</a></li>
+<li><a href="ALGOs/New%20Algos/applications.html">Applications</a></li>
+</ul>
+<h2>🛠️ Advanced Configuration</h2>
+<h3>Custom Model Training</h3>
+<pre class="codehilite"><code class="language-python">import torch.nn as nn
+from yalgo_s import ImageTrainer
+
+class CustomCNN(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.conv1 = nn.Conv2d(3, 32, 3, padding=1)
+        self.pool = nn.MaxPool2d(2, 2)
+        self.conv2 = nn.Conv2d(32, 64, 3, padding=1)
+        self.fc1 = nn.Linear(64 * 8 * 8, 10)
+
+    def forward(self, x):
+        x = self.pool(torch.relu(self.conv1(x)))
+        x = self.pool(torch.relu(self.conv2(x)))
+        x = x.view(-1, 64 * 8 * 8)
+        x = self.fc1(x)
+        return x
+
+# Train custom model
+trainer = ImageTrainer(model=CustomCNN(), batch_size=128)
+trainer.setup_data('MNIST')
+trained_model = trainer.train()
+</code></pre>
+
+<h3>GPU Configuration</h3>
+<pre class="codehilite"><code class="language-python"># Enable RTX optimizations
+optimizer = AGMOHD(
+    model,
+    device='cuda',
+    use_rtx_optimizations=True
+)
+
+# Multi-GPU setup
+poic_net = POICNet(device='cuda:0')
+poic_net.enable_multi_gpu(gpu_ids=[0, 1, 2])
+</code></pre>
+
+<h2>📈 Performance Benchmarks</h2>
+<table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>Dataset</th>
+<th>Accuracy</th>
+<th>Training Time</th>
+<th>GPU Memory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AGMOHD</td>
+<td>MNIST</td>
+<td>98.8%</td>
+<td>2 min</td>
+<td>1.2 GB</td>
+</tr>
+<tr>
+<td>AGMOHD</td>
+<td>CIFAR-10</td>
+<td>87.2%</td>
+<td>15 min</td>
+<td>2.1 GB</td>
+</tr>
+<tr>
+<td>POIC-NET</td>
+<td>COCO</td>
+<td>92.1%</td>
+<td>45ms</td>
+<td>1.8 GB</td>
+</tr>
+<tr>
+<td>ARCE</td>
+<td>IoT Data</td>
+<td>94.2%</td>
+<td>1 min</td>
+<td>0.8 GB</td>
+</tr>
+</tbody>
+</table>
+<h2>🔧 Troubleshooting</h2>
+<h3>Common Issues</h3>
+<p><strong>Import Error</strong></p>
+<pre class="codehilite"><code class="language-bash"># Reinstall package
+pip uninstall yalgo-s
+pip install -e .
+</code></pre>
+
+<p><strong>CUDA Not Available</strong></p>
+<pre class="codehilite"><code class="language-bash"># Check CUDA installation
+python -c &quot;import torch; print(torch.version.cuda)&quot;
+
+# Install CUDA version of PyTorch
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+</code></pre>
+
+<p><strong>Memory Issues</strong></p>
+<pre class="codehilite"><code class="language-python"># Reduce batch size
+trainer = ImageTrainer(batch_size=16)
+</code></pre>
+
+<h2>📚 Next Steps</h2>
+<h3>Learn More</h3>
+<ul>
+<li><a href="README.html">Complete Documentation</a></li>
+<li><a href="ALGOs/New%20Algos/Readme.html">API Reference</a></li>
+<li><a href="ALGOs/New%20Algos/applications.html">Applications Guide</a></li>
+</ul>
+<h3>Advanced Topics</h3>
+<ul>
+<li><a href="ALGOs/New%20Algos/AGMOHD/yalgo_s_cross_platform.html">GPU Optimization</a></li>
+<li><a href="ALGOs/New%20Algos/AGMOHD/yalgo_s_performance_heatmap.html">Multi-GPU Training</a></li>
+<li><a href="examples/">Custom Architectures</a></li>
+</ul>
+<h3>Community</h3>
+<ul>
+<li><a href="https://github.com/badpirogrammer2/yalgo-s/issues">GitHub Issues</a></li>
+<li><a href="https://github.com/badpirogrammer2/yalgo-s/discussions">Discussions</a></li>
+<li><a href="https://docs.yalgo-s.com">Documentation</a></li>
+</ul>
+<h2>🎉 You're All Set!</h2>
+<p>You've successfully installed YALGO-S and run your first examples. The framework is now ready for your machine learning projects!</p>
+<p>For more advanced usage and detailed documentation, explore the interactive HTML files or visit our GitHub repository.</p>
+        </main>
+
+        <div class="footer">
+            <p>
+                <strong>YALGO-S</strong> - Advanced AI Algorithms<br>
+                <a href="https://github.com/badpirogrammer2/yalgo-s">GitHub Repository</a> |
+                <a href="https://docs.yalgo-s.com">Official Documentation</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

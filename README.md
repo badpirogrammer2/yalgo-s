@@ -755,15 +755,15 @@ python test_parallel_optimizations.py
 ## 📚 **Documentation**
 
 ### 📖 **User Guides**
-- [Installation Guide](docs/installation.md)
-- [Quick Start Tutorial](docs/quickstart.md)
+- [Installation Guide](docs/installation.html)
+- [Quick Start Tutorial](docs/quickstart.html)
 - [API Reference](docs/api/)
-- [Best Practices](docs/best-practices.md)
+- [Best Practices](docs/best-practices.html)
 
 ### 🎓 **Algorithm Documentation**
-- [AGMOHD Technical Details](ALGOs/New%20Algos/AGMOHD/readme.md)
-- [POIC-NET Technical Details](ALGOs/New%20Algos/POIC-NET/Readme.md)
-- [ARCE Technical Details](ALGOs/New%20Algos/ARCE/readme.md)
+- [AGMOHD Technical Details](ALGOs/New%20Algos/AGMOHD/readme.html)
+- [POIC-NET Technical Details](ALGOs/New%20Algos/POIC-NET/Readme.html)
+- [ARCE Technical Details](ALGOs/New%20Algos/ARCE/readme.html)
 
 ### 🧪 **Examples and Tutorials**
 - [Computer Vision Examples](examples/computer-vision/)
@@ -801,7 +801,7 @@ flake8 .
 ### 📝 **Contributing Guidelines**
 - [Code of Conduct](CODE_OF_CONDUCT.md)
 - [Contributing Guide](CONTRIBUTING.md)
-- [Development Setup](docs/development.md)
+- [Development Setup](docs/development.html)
 
 ---
 
@@ -877,7 +877,7 @@ YALGO-S builds upon the incredible work of the open-source community:
 
 **Made with ❤️ by the YALGO-S Team**
 
-[🌟 Star us on GitHub](https://github.com/badpirogrammer2/yalgo-s) • [📖 Read the Docs](https://docs.yalgo-s.com) • [🚀 Get Started](docs/quickstart.md)
+[🌟 Star us on GitHub](https://github.com/badpirogrammer2/yalgo-s) • [📖 Read the Docs](https://docs.yalgo-s.com) • [🚀 Get Started](docs/quickstart.html)
 
 </div>
 

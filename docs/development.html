@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YALGO-S Development Guide - YALGO-S</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #2c3e50;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            color: #2980b9;
+        }
+
+        h2 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+
+        code {
+            background-color: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border-left: 4px solid #3498db;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #3498db;
+            padding-left: 20px;
+            margin-left: 0;
+            color: #555;
+            font-style: italic;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .badge-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .badge-info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+
+        ul, ol {
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header style="text-align: center; margin-bottom: 40px;">
+            <h1>🚀 YALGO-S Documentation</h1>
+            <p>Advanced AI Algorithms for Optimization, Multi-Modal Processing, and Adaptive Learning</p>
+        </header>
+
+        <nav style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 30px;">
+            <strong>Quick Navigation:</strong>
+            <a href="#top">Top</a> |
+            <a href="README.html">Main README</a> |
+            <a href="ALGOs/New%20Algos/Readme.html">Installation</a> |
+            <a href="ALGOs/New%20Algos/applications.html">Applications</a>
+        </nav>
+
+        <main>
+<h1>YALGO-S Development Guide</h1>
+<h2>Overview</h2>
+<p>This guide covers development practices, contribution guidelines, and technical details for YALGO-S contributors.</p>
+<h2>🏗️ Development Setup</h2>
+<h3>Prerequisites</h3>
+<pre class="codehilite"><code class="language-bash"># Python 3.8+
+python --version
+
+# Git
+git --version
+
+# CUDA (optional, for GPU development)
+nvcc --version
+</code></pre>
+
+<h3>Clone and Setup</h3>
+<pre class="codehilite"><code class="language-bash"># Clone repository
+git clone https://github.com/badpirogrammer2/yalgo-s.git
+cd yalgo-s
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # Linux/macOS
+# or
+venv\Scripts\activate     # Windows
+
+# Install development dependencies
+pip install -e &quot;.[dev]&quot;
+</code></pre>
+
+<h3>Development Tools</h3>
+<pre class="codehilite"><code class="language-bash"># Install pre-commit hooks
+pre-commit install
+
+# Run initial checks
+pre-commit run --all-files
+</code></pre>
+
+<h2>🧪 Testing Framework</h2>
+<h3>Running Tests</h3>
+<pre class="codehilite"><code class="language-bash"># Run all tests
+python run_all_tests.py
+
+# Run specific test suites
+python test_agmohd_hf.py
+python test_poic_net_hf.py
+python test_arce_hf.py
+
+# Run with coverage
+pytest --cov=yalgo_s --cov-report=html
+
+# Run GPU tests
+python -m pytest tests/ -k gpu -v
+</code></pre>
+
+<h3>Writing Tests</h3>
+<pre class="codehilite"><code class="language-python">import pytest
+import torch
+from yalgo_s import AGMOHD
+
+def test_agmohd_basic():
+    &quot;&quot;&quot;Test basic AGMOHD functionality.&quot;&quot;&quot;
+    model = torch.nn.Linear(10, 1)
+    optimizer = AGMOHD(model, lr=0.01)
+
+    # Test optimizer creation
+    assert optimizer is not None
+    assert optimizer.lr == 0.01
+
+def test_agmohd_training():
+    &quot;&quot;&quot;Test AGMOHD training loop.&quot;&quot;&quot;
+    model = torch.nn.Linear(10, 1)
+    optimizer = AGMOHD(model)
+
+    # Create dummy data
+    X = torch.randn(100, 10)
+    y = X.sum(dim=1, keepdim=True)
+
+    # Training loop
+    for _ in range(10):
+        optimizer.zero_grad()
+        output = model(X)
+        loss = torch.nn.functional.mse_loss(output, y)
+        loss.backward()
+        optimizer.step()
+
+    # Verify training worked
+    assert loss.item() &lt; 1.0
+</code></pre>
+
+<h3>Test Organization</h3>
+<pre class="codehilite"><code>tests/
+├── test_agmohd.py          # AGMOHD tests
+├── test_poic_net.py        # POIC-NET tests
+├── test_arce.py           # ARCE tests
+├── test_image_training.py # Image training tests
+├── test_integration.py    # Integration tests
+├── test_performance.py    # Performance tests
+└── conftest.py           # Test configuration
+</code></pre>
+
+<h2>📝 Code Style and Standards</h2>
+<h3>Python Style Guide</h3>
+<pre class="codehilite"><code class="language-python"># Use type hints
+def train_model(model: nn.Module, data: DataLoader) -&gt; Dict[str, float]:
+    &quot;&quot;&quot;Train model and return metrics.&quot;&quot;&quot;
+    pass
+
+# Use descriptive variable names
+learning_rate = 0.01  # Not lr
+batch_size = 32        # Not bs
+
+# Use docstrings
+class AGMOHD:
+    &quot;&quot;&quot;Adaptive Gradient Momentum with Hindrance Detection optimizer.
+
+    This optimizer dynamically adjusts learning rates and momentum
+    based on gradient analysis and training hindrance detection.
+    &quot;&quot;&quot;
+    pass
+</code></pre>
+
+<h3>Code Formatting</h3>
+<pre class="codehilite"><code class="language-bash"># Format code with Black
+black .
+
+# Sort imports with isort
+isort .
+
+# Check style with flake8
+flake8 .
+
+# Type checking with mypy
+mypy .
+</code></pre>
+
+<h3>Commit Messages</h3>
+<pre class="codehilite"><code class="language-bash"># Good commit messages
+git commit -m &quot;feat: add RTX 5060 optimizations to AGMOHD&quot;
+
+git commit -m &quot;fix: resolve memory leak in POIC-NET inference&quot;
+
+git commit -m &quot;docs: update installation guide for macOS&quot;
+
+git commit -m &quot;test: add GPU memory tests for ImageTrainer&quot;
+
+# Bad commit messages
+git commit -m &quot;fixed bug&quot;
+git commit -m &quot;updated code&quot;
+git commit -m &quot;changes&quot;
+</code></pre>
+
+<h2>🏗️ Architecture Guidelines</h2>
+<h3>Module Structure</h3>
+<pre class="codehilite"><code>yalgo_s/
+├── __init__.py           # Main exports
+├── agmohd/              # AGMOHD optimizer
+│   ├── __init__.py
+│   ├── agmohd.py       # Core implementation
+│   └── utils.py        # Helper functions
+├── poic_net/           # POIC-NET algorithm
+│   ├── __init__.py
+│   ├── poicnet.py     # Core implementation
+│   └── models.py      # Model definitions
+├── arce/               # ARCE algorithm
+│   ├── __init__.py
+│   ├── arce.py        # Core implementation
+│   └── context.py     # Context handling
+├── image_training/     # Image training module
+│   ├── __init__.py
+│   ├── trainer.py     # Training logic
+│   ├── data.py        # Data loading
+│   └── models.py      # Model architectures
+└── utils/              # Shared utilities
+    ├── __init__.py
+    ├── gpu.py         # GPU utilities
+    ├── logging.py     # Logging utilities
+    └── metrics.py     # Performance metrics
+</code></pre>
+
+<h3>Class Design</h3>
+<pre class="codehilite"><code class="language-python">class BaseOptimizer:
+    &quot;&quot;&quot;Base class for YALGO-S optimizers.&quot;&quot;&quot;
+
+    def __init__(self, model, lr=0.01, **kwargs):
+        self.model = model
+        self.lr = lr
+        self.device = kwargs.get('device', 'auto')
+        self._setup_device()
+
+    def _setup_device(self):
+        &quot;&quot;&quot;Setup device (CPU/GPU) configuration.&quot;&quot;&quot;
+        if self.device == 'auto':
+            self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
+        self.model.to(self.device)
+
+    def step(self):
+        &quot;&quot;&quot;Perform optimization step.&quot;&quot;&quot;
+        raise NotImplementedError
+
+    def zero_grad(self):
+        &quot;&quot;&quot;Zero gradients.&quot;&quot;&quot;
+        self.model.zero_grad()
+</code></pre>
+
+<h3>Error Handling</h3>
+<pre class="codehilite"><code class="language-python">class YALGOSError(Exception):
+    &quot;&quot;&quot;Base exception for YALGO-S errors.&quot;&quot;&quot;
+    pass
+
+class GPUError(YALGOSError):
+    &quot;&quot;&quot;GPU-related errors.&quot;&quot;&quot;
+    pass
+
+class MemoryError(YALGOSError):
+    &quot;&quot;&quot;Memory-related errors.&quot;&quot;&quot;
+    pass
+
+def safe_gpu_operation(func):
+    &quot;&quot;&quot;Decorator for safe GPU operations.&quot;&quot;&quot;
+    def wrapper(*args, **kwargs):
+        try:
+            return func(*args, **kwargs)
+        except RuntimeError as e:
+            if &quot;out of memory&quot; in str(e):
+                torch.cuda.empty_cache()
+                raise MemoryError(&quot;GPU out of memory&quot;) from e
+            elif &quot;device&quot; in str(e):
+                raise GPUError(&quot;GPU device error&quot;) from e
+            else:
+                raise
+    return wrapper
+</code></pre>
+
+<h2>🚀 Performance Optimization</h2>
+<h3>GPU Optimization</h3>
+<pre class="codehilite"><code class="language-python"># Enable cuDNN optimizations
+torch.backends.cudnn.benchmark = True
+torch.backends.cuda.matmul.allow_tf32 = True
+
+# Memory management
+torch.cuda.set_per_process_memory_fraction(0.8)
+
+# RTX-specific optimizations
+if torch.cuda.get_device_name().startswith('RTX'):
+    # Enable TF32
+    torch.backends.cuda.matmul.allow_tf32 = True
+    torch.backends.cudnn.allow_tf32 = True
+</code></pre>
+
+<h3>Memory Optimization</h3>
+<pre class="codehilite"><code class="language-python"># Use gradient checkpointing for large models
+from torch.utils.checkpoint import checkpoint
+
+def create_checkpointed_model():
+    &quot;&quot;&quot;Create model with gradient checkpointing.&quot;&quot;&quot;
+    pass
+
+# Use mixed precision training
+from torch.cuda.amp import autocast, GradScaler
+
+scaler = GradScaler()
+with autocast():
+    output = model(input)
+    loss = criterion(output, target)
+
+scaler.scale(loss).backward()
+scaler.step(optimizer)
+scaler.update()
+</code></pre>
+
+<h3>Profiling</h3>
+<pre class="codehilite"><code class="language-python">import torch.profiler
+
+def profile_training():
+    &quot;&quot;&quot;Profile training performance.&quot;&quot;&quot;
+    with torch.profiler.profile(
+        activities=[torch.profiler.ProfilerActivity.CPU, torch.profiler.ProfilerActivity.CUDA],
+        record_shapes=True
+    ) as prof:
+        # Training code here
+        pass
+
+    print(prof.key_averages().table(sort_by=&quot;cuda_time_total&quot;))
+</code></pre>
+
+<h2>📦 Release Process</h2>
+<h3>Version Management</h3>
+<pre class="codehilite"><code class="language-python"># Version format: MAJOR.MINOR.PATCH
+__version__ = &quot;0.1.0&quot;
+
+# Update version in:
+# - yalgo_s/__init__.py
+# - setup.py
+# - pyproject.toml
+# - docs/conf.py
+</code></pre>
+
+<h3>Release Checklist</h3>
+<ul>
+<li>[ ] Update version numbers</li>
+<li>[ ] Update CHANGELOG.md</li>
+<li>[ ] Run full test suite</li>
+<li>[ ] Update documentation</li>
+<li>[ ] Create release branch</li>
+<li>[ ] Tag release</li>
+<li>[ ] Create GitHub release</li>
+<li>[ ] Update PyPI package</li>
+</ul>
+<h3>Building Distributions</h3>
+<pre class="codehilite"><code class="language-bash"># Build source distribution
+python setup.py sdist
+
+# Build wheel
+python setup.py bdist_wheel
+
+# Upload to PyPI
+twine upload dist/*
+</code></pre>
+
+<h2>🔧 CI/CD Pipeline</h2>
+<h3>GitHub Actions</h3>
+<pre class="codehilite"><code class="language-yaml">name: CI/CD Pipeline
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        python-version: [3.8, 3.9, '3.10']
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        pip install -e &quot;.[dev]&quot;
+
+    - name: Run tests
+      run: |
+        python run_all_tests.py
+
+    - name: Upload coverage
+      uses: codecov/codecov-action@v2
+</code></pre>
+
+<h3>Pre-commit Hooks</h3>
+<pre class="codehilite"><code class="language-yaml"># .pre-commit-config.yaml
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+
+  - repo: https://github.com/psf/black
+    rev: 22.10.0
+    hooks:
+      - id: black
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.10.1
+    hooks:
+      - id: isort
+
+  - repo: https://github.com/pycqa/flake8
+    rev: 5.0.4
+    hooks:
+      - id: flake8
+</code></pre>
+
+<h2>📚 Documentation</h2>
+<h3>Building Docs</h3>
+<pre class="codehilite"><code class="language-bash"># Install documentation dependencies
+pip install -e &quot;.[docs]&quot;
+
+# Build HTML documentation
+cd docs
+make html
+
+# Serve documentation locally
+python -m http.server 8000 -d _build/html
+</code></pre>
+
+<h3>Documentation Standards</h3>
+<pre class="codehilite"><code class="language-python">def function_with_docstring(param1: int, param2: str) -&gt; bool:
+    &quot;&quot;&quot;Function that does something useful.
+
+    This function performs a specific operation with detailed
+    explanation of its behavior and parameters.
+
+    Args:
+        param1 (int): Description of first parameter
+        param2 (str): Description of second parameter
+
+    Returns:
+        bool: Description of return value
+
+    Raises:
+        ValueError: When invalid parameters are provided
+        RuntimeError: When operation fails
+
+    Examples:
+        &gt;&gt;&gt; result = function_with_docstring(1, &quot;test&quot;)
+        &gt;&gt;&gt; print(result)
+        True
+    &quot;&quot;&quot;
+    pass
+</code></pre>
+
+<h2>🤝 Contributing Guidelines</h2>
+<h3>Issue Reporting</h3>
+<ul>
+<li>Use issue templates</li>
+<li>Provide minimal reproducible examples</li>
+<li>Include system information</li>
+<li>Attach relevant logs</li>
+</ul>
+<h3>Pull Request Process</h3>
+<ol>
+<li>Fork the repository</li>
+<li>Create a feature branch</li>
+<li>Make your changes</li>
+<li>Add tests for new functionality</li>
+<li>Update documentation</li>
+<li>Ensure all tests pass</li>
+<li>Submit pull request</li>
+</ol>
+<h3>Code Review Process</h3>
+<ul>
+<li>All PRs require review</li>
+<li>Maintainers review within 2-3 business days</li>
+<li>Address review comments</li>
+<li>Squash commits before merge</li>
+<li>Use conventional commit messages</li>
+</ul>
+<h2>🔒 Security</h2>
+<h3>Security Best Practices</h3>
+<pre class="codehilite"><code class="language-python"># Avoid hardcoding secrets
+# Use environment variables
+import os
+api_key = os.getenv('YALGO_S_API_KEY')
+
+# Validate inputs
+def validate_input(data):
+    if not isinstance(data, dict):
+        raise ValueError(&quot;Input must be a dictionary&quot;)
+    # Additional validation logic
+
+# Use secure random for tokens
+import secrets
+token = secrets.token_urlsafe(32)
+</code></pre>
+
+<h3>Vulnerability Reporting</h3>
+<ul>
+<li>Report security issues privately</li>
+<li>Use GitHub Security tab</li>
+<li>Allow 90 days for fixes</li>
+<li>Responsible disclosure</li>
+</ul>
+<h2>📊 Performance Monitoring</h2>
+<h3>Benchmarking</h3>
+<pre class="codehilite"><code class="language-python">import time
+from contextlib import contextmanager
+
+@contextmanager
+def timer():
+    &quot;&quot;&quot;Context manager for timing code blocks.&quot;&quot;&quot;
+    start = time.time()
+    try:
+        yield
+    finally:
+        end = time.time()
+        print(f&quot;Elapsed time: {end - start:.3f}s&quot;)
+
+# Usage
+with timer():
+    result = expensive_operation()
+</code></pre>
+
+<h3>Metrics Collection</h3>
+<pre class="codehilite"><code class="language-python">class PerformanceMonitor:
+    &quot;&quot;&quot;Monitor performance metrics during training.&quot;&quot;&quot;
+
+    def __init__(self):
+        self.metrics = []
+
+    def log_metric(self, name, value, step):
+        &quot;&quot;&quot;Log a performance metric.&quot;&quot;&quot;
+        self.metrics.append({
+            'name': name,
+            'value': value,
+            'step': step,
+            'timestamp': time.time()
+        })
+
+    def get_summary(self):
+        &quot;&quot;&quot;Get performance summary.&quot;&quot;&quot;
+        return {
+            'total_steps': len(self.metrics),
+            'avg_values': self._calculate_averages(),
+            'peak_memory': self._get_peak_memory()
+        }
+</code></pre>
+
+<h2>🎯 Best Practices</h2>
+<h3>Code Quality</h3>
+<ul>
+<li>Write self-documenting code</li>
+<li>Use meaningful variable names</li>
+<li>Keep functions small and focused</li>
+<li>Add comprehensive error handling</li>
+<li>Write tests for all new features</li>
+</ul>
+<h3>Performance</h3>
+<ul>
+<li>Profile code before optimizing</li>
+<li>Use appropriate data structures</li>
+<li>Minimize memory allocations</li>
+<li>Leverage GPU acceleration when possible</li>
+<li>Cache expensive computations</li>
+</ul>
+<h3>Maintainability</h3>
+<ul>
+<li>Follow SOLID principles</li>
+<li>Use dependency injection</li>
+<li>Keep coupling low</li>
+<li>Document design decisions</li>
+<li>Refactor regularly</li>
+</ul>
+<h3>Collaboration</h3>
+<ul>
+<li>Communicate clearly</li>
+<li>Respect coding standards</li>
+<li>Help others learn</li>
+<li>Share knowledge</li>
+<li>Be open to feedback</li>
+</ul>
+<p>This development guide ensures consistent, high-quality contributions to the YALGO-S project while maintaining performance and reliability standards.</p>
+        </main>
+
+        <div class="footer">
+            <p>
+                <strong>YALGO-S</strong> - Advanced AI Algorithms<br>
+                <a href="https://github.com/badpirogrammer2/yalgo-s">GitHub Repository</a> |
+                <a href="https://docs.yalgo-s.com">Official Documentation</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YALGO-S Best Practices - YALGO-S</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: #2c3e50;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            color: #2980b9;
+        }
+
+        h2 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+
+        code {
+            background-color: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border-left: 4px solid #3498db;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+        }
+
+        blockquote {
+            border-left: 4px solid #3498db;
+            padding-left: 20px;
+            margin-left: 0;
+            color: #555;
+            font-style: italic;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .badge-success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .badge-info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+
+        ul, ol {
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header style="text-align: center; margin-bottom: 40px;">
+            <h1>🚀 YALGO-S Documentation</h1>
+            <p>Advanced AI Algorithms for Optimization, Multi-Modal Processing, and Adaptive Learning</p>
+        </header>
+
+        <nav style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 30px;">
+            <strong>Quick Navigation:</strong>
+            <a href="#top">Top</a> |
+            <a href="README.html">Main README</a> |
+            <a href="ALGOs/New%20Algos/Readme.html">Installation</a> |
+            <a href="ALGOs/New%20Algos/applications.html">Applications</a>
+        </nav>
+
+        <main>
+<h1>YALGO-S Best Practices</h1>
+<h2>Overview</h2>
+<p>This guide covers best practices for using YALGO-S algorithms effectively in your machine learning projects.</p>
+<h2>🧠 AGMOHD Optimizer</h2>
+<h3>Learning Rate Selection</h3>
+<pre class="codehilite"><code class="language-python"># Good starting points
+optimizer = AGMOHD(model, lr=0.01)  # General purpose
+optimizer = AGMOHD(model, lr=0.001)  # Fine-tuning
+optimizer = AGMOHD(model, lr=0.1)   # Large datasets
+</code></pre>
+
+<h3>Beta Parameter Tuning</h3>
+<pre class="codehilite"><code class="language-python"># Conservative momentum (stable training)
+optimizer = AGMOHD(model, lr=0.01, beta=0.95)
+
+# Aggressive momentum (faster convergence)
+optimizer = AGMOHD(model, lr=0.01, beta=0.85)
+</code></pre>
+
+<h3>RTX Optimization</h3>
+<pre class="codehilite"><code class="language-python"># Enable RTX optimizations for RTX 40-series GPUs
+optimizer = AGMOHD(
+    model,
+    device='cuda',
+    use_rtx_optimizations=True
+)
+</code></pre>
+
+<h2>🖼️ Image Training</h2>
+<h3>Data Preparation</h3>
+<pre class="codehilite"><code class="language-python"># Always use data augmentation for better generalization
+trainer = ImageTrainer(model_name='resnet18')
+trainer.setup_data('CIFAR10', augmentation=True)
+
+# Use appropriate batch sizes
+trainer = ImageTrainer(batch_size=64)  # RTX 3060+
+trainer = ImageTrainer(batch_size=32)  # RTX 2060
+trainer = ImageTrainer(batch_size=16)  # Limited VRAM
+</code></pre>
+
+<h3>Model Selection</h3>
+<pre class="codehilite"><code class="language-python"># Start with pre-trained models
+trainer = ImageTrainer(model_name='resnet18')    # Good balance
+trainer = ImageTrainer(model_name='efficientnet_b0')  # Lightweight
+trainer = ImageTrainer(model_name='vgg16')       # Detailed features
+
+# Use custom models for specific requirements
+class CustomModel(nn.Module):
+    # Implement your architecture
+    pass
+</code></pre>
+
+<h3>Training Optimization</h3>
+<pre class="codehilite"><code class="language-python"># Enable mixed precision for faster training
+trainer = ImageTrainer(mixed_precision=True)
+
+# Use gradient clipping to prevent exploding gradients
+trainer = ImageTrainer(grad_clip=1.0)
+
+# Implement early stopping
+trainer.train(early_stopping=True, patience=10)
+</code></pre>
+
+<h2>🔍 POIC-NET</h2>
+<h3>Model Configuration</h3>
+<pre class="codehilite"><code class="language-python"># Choose appropriate backbone
+poic_net = POICNet(
+    image_model_name=&quot;resnet50&quot;,    # Balanced performance
+    text_model_name=&quot;bert&quot;          # General purpose
+)
+
+# Use efficient models for real-time applications
+poic_net = POICNet(
+    image_model_name=&quot;mobilenet_v2&quot;,
+    text_model_name=&quot;distilbert&quot;
+)
+</code></pre>
+
+<h3>Threshold Tuning</h3>
+<pre class="codehilite"><code class="language-python"># Adjust detection threshold based on use case
+poic_net = POICNet(threshold=0.8)  # High precision
+poic_net = POICNet(threshold=0.5)  # High recall
+poic_net = POICNet(threshold=0.3)  # Maximum detections
+</code></pre>
+
+<h3>Multi-Modal Processing</h3>
+<pre class="codehilite"><code class="language-python"># Always provide both image and text when available
+objects, scores = poic_net((image, text_description))
+
+# Use image-only for faster processing
+objects, scores = poic_net(image, modality=&quot;image&quot;)
+</code></pre>
+
+<h2>🧠 ARCE</h2>
+<h3>Network Configuration</h3>
+<pre class="codehilite"><code class="language-python"># Start with reasonable defaults
+arce = ARCE(
+    input_dim=100,
+    vigilance_base=0.8,
+    learning_rate=0.1
+)
+
+# Adjust for your data characteristics
+arce = ARCE(
+    input_dim=data_dim,
+    vigilance_base=0.7,  # Lower for noisy data
+    max_categories=50    # Limit categories for memory
+)
+</code></pre>
+
+<h3>Context Engineering</h3>
+<pre class="codehilite"><code class="language-python"># Provide rich contextual information
+context = {
+    'temporal': datetime.now().hour,
+    'spatial': get_location(),
+    'environmental': get_weather(),
+    'user_state': get_user_activity()
+}
+
+# Use consistent context keys
+category = arce.learn(data, context)
+</code></pre>
+
+<h3>Vigilance Adaptation</h3>
+<pre class="codehilite"><code class="language-python"># Adapt vigilance based on context stability
+if context_is_stable(context):
+    arce.vigilance_base = 0.9  # Higher vigilance
+else:
+    arce.vigilance_base = 0.6  # Lower vigilance
+</code></pre>
+
+<h2>🚀 Performance Optimization</h2>
+<h3>GPU Memory Management</h3>
+<pre class="codehilite"><code class="language-python">import torch
+
+# Set memory fraction
+torch.cuda.set_per_process_memory_fraction(0.8)
+
+# Empty cache regularly
+torch.cuda.empty_cache()
+
+# Use gradient accumulation for large batches
+# Implement in custom training loop
+</code></pre>
+
+<h3>Multi-GPU Training</h3>
+<pre class="codehilite"><code class="language-python"># DataParallel for simple multi-GPU
+model = nn.DataParallel(model)
+
+# DistributedDataParallel for advanced setups
+# Use torch.distributed for large-scale training
+</code></pre>
+
+<h3>CPU Optimization</h3>
+<pre class="codehilite"><code class="language-python"># Set thread counts
+import os
+os.environ['OMP_NUM_THREADS'] = '8'
+os.environ['MKL_NUM_THREADS'] = '8'
+
+# Use efficient data loading
+from torch.utils.data import DataLoader
+loader = DataLoader(dataset, num_workers=4, pin_memory=True)
+</code></pre>
+
+<h2>📊 Monitoring and Debugging</h2>
+<h3>Performance Monitoring</h3>
+<pre class="codehilite"><code class="language-python"># Monitor GPU usage
+stats = optimizer.get_performance_stats()
+print(f&quot;GPU Memory: {stats['current_memory']:.2f} GB&quot;)
+print(f&quot;GPU Utilization: {stats['current_gpu_util']:.1f}%&quot;)
+
+# Track training metrics
+trainer = ImageTrainer(track_metrics=True)
+history = trainer.train()
+</code></pre>
+
+<h3>Logging Best Practices</h3>
+<pre class="codehilite"><code class="language-python">import logging
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+
+# Log important events
+logger = logging.getLogger(__name__)
+logger.info(&quot;Training started&quot;)
+logger.info(f&quot;Epoch {epoch}: Loss = {loss:.4f}&quot;)
+</code></pre>
+
+<h3>Error Handling</h3>
+<pre class="codehilite"><code class="language-python">try:
+    trained_model = trainer.train()
+except RuntimeError as e:
+    if &quot;out of memory&quot; in str(e):
+        # Reduce batch size
+        trainer.batch_size = trainer.batch_size // 2
+        trained_model = trainer.train()
+    else:
+        raise
+</code></pre>
+
+<h2>🔧 Troubleshooting Guide</h2>
+<h3>Common Issues and Solutions</h3>
+<p><strong>CUDA Out of Memory</strong></p>
+<pre class="codehilite"><code class="language-python"># Solutions in order of preference:
+# 1. Reduce batch size
+trainer = ImageTrainer(batch_size=16)
+
+# 2. Use gradient accumulation
+# 3. Use mixed precision training
+# 4. Use smaller model
+trainer = ImageTrainer(model_name='efficientnet_b0')
+
+# 5. Reduce input size
+# 6. Use CPU training (last resort)
+</code></pre>
+
+<p><strong>Slow Training</strong></p>
+<pre class="codehilite"><code class="language-python"># Enable optimizations
+torch.backends.cudnn.benchmark = True
+torch.backends.cuda.matmul.allow_tf32 = True
+
+# Use DataParallel
+model = nn.DataParallel(model)
+
+# Optimize data loading
+loader = DataLoader(dataset, num_workers=4, pin_memory=True)
+</code></pre>
+
+<p><strong>Poor Model Performance</strong></p>
+<pre class="codehilite"><code class="language-python"># Check data quality
+trainer.setup_data('CIFAR10', augmentation=True)
+
+# Adjust learning rate
+optimizer = AGMOHD(model, lr=0.001)
+
+# Use better architecture
+trainer = ImageTrainer(model_name='resnet50')
+
+# Implement regularization
+# Add dropout, batch normalization
+</code></pre>
+
+<p><strong>Memory Leaks</strong></p>
+<pre class="codehilite"><code class="language-python"># Clear cache regularly
+torch.cuda.empty_cache()
+
+# Delete unused variables
+del intermediate_results
+
+# Use context managers
+with torch.no_grad():
+    # Inference code
+</code></pre>
+
+<h2>📈 Scaling Best Practices</h2>
+<h3>Small Scale (Single GPU)</h3>
+<pre class="codehilite"><code class="language-python"># Use RTX optimizations
+trainer = ImageTrainer(use_rtx_optimizations=True)
+
+# Optimize batch size for your GPU
+trainer = ImageTrainer(batch_size=64)  # RTX 3060
+</code></pre>
+
+<h3>Medium Scale (Multi-GPU)</h3>
+<pre class="codehilite"><code class="language-python"># Enable DataParallel
+model = nn.DataParallel(model)
+
+# Use larger batch sizes
+trainer = ImageTrainer(batch_size=256)
+
+# Optimize data loading
+loader = DataLoader(dataset, num_workers=8, pin_memory=True)
+</code></pre>
+
+<h3>Large Scale (Distributed)</h3>
+<pre class="codehilite"><code class="language-python"># Use DistributedDataParallel
+import torch.distributed as dist
+# Initialize process group
+# Wrap model with DDP
+
+# Use gradient accumulation
+# Implement custom training loop
+</code></pre>
+
+<h2>🔒 Production Deployment</h2>
+<h3>Model Serialization</h3>
+<pre class="codehilite"><code class="language-python"># Save trained model
+torch.save(model.state_dict(), 'model.pth')
+
+# Load for inference
+model.load_state_dict(torch.load('model.pth'))
+model.eval()
+</code></pre>
+
+<h3>Inference Optimization</h3>
+<pre class="codehilite"><code class="language-python"># Use TorchScript for faster inference
+scripted_model = torch.jit.script(model)
+
+# Use ONNX for cross-platform deployment
+torch.onnx.export(model, input_sample, 'model.onnx')
+</code></pre>
+
+<h3>Monitoring in Production</h3>
+<pre class="codehilite"><code class="language-python"># Log predictions
+logger.info(f&quot;Prediction: {prediction}, Confidence: {confidence}&quot;)
+
+# Monitor latency
+start_time = time.time()
+result = model(input_data)
+latency = time.time() - start_time
+logger.info(f&quot;Inference latency: {latency:.3f}s&quot;)
+</code></pre>
+
+<h2>📚 Additional Resources</h2>
+<h3>Documentation</h3>
+<ul>
+<li><a href="ALGOs/New%20Algos/Readme.html">API Reference</a></li>
+<li><a href="examples/">Examples</a></li>
+<li><a href="docs/troubleshooting.md">Troubleshooting Guide</a></li>
+</ul>
+<h3>Community</h3>
+<ul>
+<li><a href="https://github.com/badpirogrammer2/yalgo-s/issues">GitHub Issues</a></li>
+<li><a href="https://github.com/badpirogrammer2/yalgo-s/discussions">Discussions</a></li>
+<li><a href="https://stackoverflow.com/questions/tagged/yalgo-s">Stack Overflow</a></li>
+</ul>
+<h3>Performance Tuning</h3>
+<ul>
+<li><a href="ALGOs/New%20Algos/AGMOHD/yalgo_s_cross_platform.html">GPU Optimization Guide</a></li>
+<li><a href="docs/memory-optimization.md">Memory Management</a></li>
+<li><a href="ALGOs/New%20Algos/AGMOHD/yalgo_s_performance_heatmap.html">Benchmark Results</a></li>
+</ul>
+<p>Remember: These are guidelines, not strict rules. Always profile your specific use case and adjust parameters accordingly for optimal performance.</p>
+        </main>
+
+        <div class="footer">
+            <p>
+                <strong>YALGO-S</strong> - Advanced AI Algorithms<br>
+                <a href="https://github.com/badpirogrammer2/yalgo-s">GitHub Repository</a> |
+                <a href="https://docs.yalgo-s.com">Official Documentation</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
