@@ -755,10 +755,10 @@ python test_parallel_optimizations.py
 ## 📚 **Documentation**
 
 ### 📖 **User Guides**
-- [Installation Guide](docs/installation.html)
-- [Quick Start Tutorial](docs/quickstart.html)
+- [Installation Guide](docs/installation.md)
+- [Quick Start Tutorial](docs/quickstart.md)
 - [API Reference](docs/api/)
-- [Best Practices](docs/best-practices.html)
+- [Best Practices](docs/best-practices.md)
 
 ### 🎓 **Algorithm Documentation**
 - [AGMOHD Technical Details](ALGOs/New%20Algos/AGMOHD/readme.html)
@@ -801,7 +801,7 @@ flake8 .
 ### 📝 **Contributing Guidelines**
 - [Code of Conduct](CODE_OF_CONDUCT.md)
 - [Contributing Guide](CONTRIBUTING.md)
-- [Development Setup](docs/development.html)
+- [Development Setup](docs/development.md)
 
 ---
 
@@ -877,7 +877,7 @@ YALGO-S builds upon the incredible work of the open-source community:
 
 **Made with ❤️ by the YALGO-S Team**
 
-[🌟 Star us on GitHub](https://github.com/badpirogrammer2/yalgo-s) • [📖 Read the Docs](https://docs.yalgo-s.com) • [🚀 Get Started](docs/quickstart.html)
+[🌟 Star us on GitHub](https://github.com/badpirogrammer2/yalgo-s) • [📖 Read the Docs](https://docs.yalgo-s.com) • [🚀 Get Started](docs/quickstart.md)
 
 </div>
 
