@@ -30,23 +30,121 @@ setup(
     ],
     python_requires=">=3.8",
     install_requires=[
+        # Core ML/DL Libraries
         "torch>=2.0.0",
         "torchvision>=0.15.0",
         "transformers>=4.0.0",
-        "numpy",
-        "pillow",
+
+        # Scientific Computing
+        "numpy>=1.21.0",
+        "scipy>=1.7.0",
+
+        # Data Processing
+        "pillow>=8.0.0",
+        "pandas>=1.3.0",
+
+        # Machine Learning
+        "scikit-learn>=1.0.0",
+
+        # Parallel Processing
+        "concurrent.futures; python_version >= '3.2'",
+
+        # Utilities
+        "pathlib>=1.0.1",
+        "typing>=3.7.4",
     ],
     extras_require={
         "dev": [
+            # Testing Framework
             "pytest>=6.0",
             "pytest-cov",
-            "black",
-            "flake8",
-            "mypy",
+            "hypothesis>=6.0",
+
+            # Code Quality
+            "black>=22.0",
+            "flake8>=4.0",
+            "mypy>=0.900",
+            "pre-commit>=2.0",
+
+            # Development Tools
+            "jupyter>=1.0",
+            "ipykernel>=6.0",
         ],
         "docs": [
-            "sphinx",
-            "sphinx-rtd-theme",
+            # Documentation
+            "sphinx>=4.0",
+            "sphinx-rtd-theme>=1.0",
+            "sphinx-autodoc-typehints>=1.0",
+            "myst-parser>=0.15",
+        ],
+        "gpu": [
+            # GPU-specific optimizations
+            "torch[cuda]>=2.0.0",
+            "torch[mps]>=2.0.0; sys_platform == 'darwin'",
+            "GPUtil>=1.4",
+            "psutil>=5.8",
+        ],
+        "datasets": [
+            # Dataset loading and management
+            "datasets>=2.0.0",
+            "huggingface-hub>=0.10",
+        ],
+        "visualization": [
+            # Data visualization
+            "matplotlib>=3.5.0",
+            "seaborn>=0.11.0",
+            "plotly>=5.0",
+        ],
+        "ml": [
+            # Additional ML libraries
+            "xgboost>=1.6.0",
+            "lightgbm>=3.3.0",
+            "catboost>=1.0",
+            "optuna>=2.10",
+        ],
+        "deployment": [
+            # Web and deployment
+            "fastapi>=0.80",
+            "uvicorn>=0.18",
+            "gunicorn>=20.1",
+            "docker>=5.0",
+            "kubernetes>=20.0",
+        ],
+        "cloud": [
+            # Cloud SDKs
+            "boto3>=1.24",
+            "google-cloud-storage>=2.0",
+            "azure-storage-blob>=12.0",
+            "azure-identity>=1.10",
+        ],
+        "performance": [
+            # Performance optimization
+            "numba>=0.56",
+            "cython>=0.29",
+            "ray>=2.0",
+            "dask>=2022.0",
+        ],
+        "all": [
+            # All optional dependencies
+            "pytest>=6.0",
+            "pytest-cov",
+            "black>=22.0",
+            "flake8>=4.0",
+            "mypy>=0.900",
+            "sphinx>=4.0",
+            "sphinx-rtd-theme>=1.0",
+            "torch[cuda]>=2.0.0",
+            "datasets>=2.0.0",
+            "matplotlib>=3.5.0",
+            "xgboost>=1.6.0",
+            "lightgbm>=3.3.0",
+            "fastapi>=0.80",
+            "uvicorn>=0.18",
+            "boto3>=1.24",
+            "google-cloud-storage>=2.0",
+            "azure-storage-blob>=12.0",
+            "numba>=0.56",
+            "ray>=2.0",
         ],
     },
     project_urls={
