@@ -7,6 +7,13 @@
 
 ## Overview
 
+YALGO-S provides cutting-edge algorithms for machine learning optimization and multi-modal processing:
+
+- **AGMOHD**: Adaptive Gradient Momentum with Hindrance Detection - Advanced optimization for neural networks
+- **POIC-NET**: Partial Object Inference and Completion Network - Multi-modal object detection and completion
+- **ARCE**: Adaptive Resonance with Contextual Embedding - Online learning and adaptation
+- **Image Training**: Integrated CNN training with AGMOHD optimizer - Easy-to-use image classification and training
+
 POIC-NET is a cutting-edge multi-modal algorithm designed to identify and complete partially visible objects in agentic object detection systems. It excels at processing incomplete or ambiguous data across multiple modalities (vision, text, audio), making it invaluable for real-world applications where perfect data is rarely available.
 
 The algorithm combines advanced computer vision techniques with generative AI and multi-modal attention mechanisms to:
@@ -14,6 +21,8 @@ The algorithm combines advanced computer vision techniques with generative AI an
 - **Complete missing parts** using contextual information
 - **Integrate multiple modalities** for robust understanding
 - **Provide uncertainty quantification** for reliable decision-making
+
+**Integration with Image Training**: POIC-NET works seamlessly with the Image Training module for end-to-end computer vision pipelines, from model training to inference and completion.
 
 ## Key Features
 

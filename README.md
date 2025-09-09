@@ -123,6 +123,38 @@ YALGO-S is a pioneering collection of advanced algorithms that address some of t
 
 ---
 
+## 🌐 **Interactive Documentation (Open in Browser)**
+
+YALGO-S provides professional HTML documentation that you can open directly in your web browser for the best viewing experience:
+
+### 📖 **Main Documentation**
+- **[README.html](README.html)** - Complete project overview, installation, and usage guide
+- **[ALGOs/New Algos/Readme.html](ALGOs/New Algos/Readme.html)** - Detailed installation instructions and technical specifications
+- **[ALGOs/New Algos/applications.html](ALGOs/New Algos/applications.html)** - Applications, use cases, and performance benchmarks
+
+### 📊 **AGMOHD Visualizations & Analysis**
+- **[Algorithm Comparison](ALGOs/New Algos/AGMOHD/yalgo_s_algorithm_comparison.html)** - Compare AGMOHD performance across different optimizers
+- **[Classification Dataset](ALGOs/New Algos/AGMOHD/yalgo_s_classification_dataset.html)** - Interactive classification dataset analysis
+- **[Regression Dataset](ALGOs/New Algos/AGMOHD/yalgo_s_regression_dataset.html)** - Regression dataset visualizations and insights
+- **[Training Progress](ALGOs/New Algos/AGMOHD/yalgo_s_training_progress.html)** - Real-time training progress monitoring
+- **[Performance Heatmap](ALGOs/New Algos/AGMOHD/yalgo_s_performance_heatmap.html)** - Performance analysis across different configurations
+- **[Cross-Platform Analysis](ALGOs/New Algos/AGMOHD/yalgo_s_cross_platform.html)** - Platform compatibility and performance metrics
+
+### 💡 **How to View**
+1. **Click any link above** to open the HTML file in your browser
+2. **Navigate using the table of contents** in each document
+3. **Interactive elements** are fully functional in modern browsers
+4. **Print-friendly** - Use browser's print function to save as PDF
+
+### 🎨 **Features**
+- **Professional styling** with modern web design
+- **Responsive layout** that works on all devices
+- **Interactive charts** and visualizations
+- **Syntax-highlighted code** examples
+- **Navigation-friendly** structure with anchors
+
+---
+
 ## 🚀 **Quick Start**
 
 ### Installation
